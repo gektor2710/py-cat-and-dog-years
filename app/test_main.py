@@ -22,3 +22,19 @@ def test_get_human_age(
         expected: list[int]
 ) -> None:
     assert get_human_age(cat_age, dog_age) == expected
+
+
+def test_get_human_age_raises_type_error() -> None:
+    with pytest.raises(TypeError):
+        get_human_age("five", 3)
+
+    with pytest.raises(TypeError):
+        get_human_age(4, 2.5)
+
+
+def test_get_human_age_raises_value_error() -> None:
+    with pytest.raises(ValueError):
+        get_human_age(-1, 5)
+
+    with pytest.raises(ValueError):
+        get_human_age(5, -10)
