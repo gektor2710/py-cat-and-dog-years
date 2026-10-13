@@ -1,17 +1,17 @@
-def get_cat_human_age(cat_age: int) -> int:
-    if cat_age < 15:
+def _calculate_human_age(animal_age: int, years_per_human_year: int) -> int:
+    if animal_age < 15:
         return 0
-    elif cat_age < 24:
+    elif animal_age < 24:
         return 1
-    return 2 + (cat_age - 24) // 4
+    return 2 + (animal_age - 24) // years_per_human_year
+
+
+def get_cat_human_age(cat_age: int) -> int:
+    return _calculate_human_age(cat_age, years_per_human_year=4)
 
 
 def get_dog_human_age(dog_age: int) -> int:
-    if dog_age < 15:
-        return 0
-    elif dog_age < 24:
-        return 1
-    return 2 + (dog_age - 24) // 5
+    return _calculate_human_age(dog_age, years_per_human_year=5)
 
 
 def get_human_age(cat_age: int, dog_age: int) -> list:
